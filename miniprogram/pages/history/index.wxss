@@ -1,0 +1,187 @@
+/* pages/history/index.wxss */
+
+/* 图表区 */
+.chart-section {
+  margin-bottom: 32rpx;
+}
+
+.chart-card {
+  background: #FFFFFF;
+  border-radius: 16rpx;
+  padding: 24rpx 16rpx 16rpx;
+  margin-bottom: 24rpx;
+}
+
+.chart-title {
+  font-size: 26rpx;
+  font-weight: 600;
+  color: #2C2416;
+  margin-bottom: 12rpx;
+  padding-left: 4rpx;
+}
+
+.chart-empty {
+  padding: 60rpx;
+  text-align: center;
+  color: #8B8178;
+  font-size: 24rpx;
+}
+
+/* 分区 */
+.section {
+  margin-bottom: 24rpx;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16rpx;
+  padding: 0 4rpx;
+}
+
+.section-title {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #2C2416;
+}
+
+.section-count {
+  font-size: 24rpx;
+  color: #8B8178;
+}
+
+/* 按日分组 */
+.day-group {
+  background: #FFFFFF;
+  border-radius: 16rpx;
+  margin-bottom: 16rpx;
+  overflow: hidden;
+}
+
+.day-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx 24rpx;
+  background: #F5F0EB;
+}
+
+.day-date-text {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #2C2416;
+}
+
+.day-total {
+  font-size: 22rpx;
+  color: #6B4E3D;
+  margin-left: 12rpx;
+}
+
+.day-delete {
+  font-size: 22rpx;
+  color: #E74C3C;
+  padding: 4rpx 12rpx;
+}
+
+.day-records {
+  padding: 0;
+}
+
+.record-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 18rpx 24rpx;
+  border-bottom: 1rpx solid #F5F0EB;
+}
+
+.record-item:last-child {
+  border-bottom: none;
+}
+
+.record-time {
+  font-size: 22rpx;
+  color: #8B8178;
+  width: 70rpx;
+}
+
+.record-type {
+  font-size: 18rpx;
+  padding: 2rpx 10rpx;
+  border-radius: 6rpx;
+  color: #FFF;
+  margin-right: 16rpx;
+}
+
+.type-homemade { background: #6B4E3D; }
+.type-brand { background: #A0806B; }
+
+.record-info {
+  flex: 1;
+  font-size: 24rpx;
+  color: #2C2416;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.record-caf {
+  text-align: right;
+  margin-left: 12rpx;
+}
+
+.caf-val {
+  font-size: 28rpx;
+  font-weight: 700;
+  color: #2C2416;
+}
+
+.caf-unit {
+  font-size: 20rpx;
+  color: #8B8178;
+  margin-left: 2rpx;
+}
+
+/* 加载 */
+.loading-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 80rpx;
+  color: #8B8178;
+  font-size: 24rpx;
+}
+
+.loading-spinner {
+  width: 48rpx;
+  height: 48rpx;
+  border: 4rpx solid #E8E0D5;
+  border-top-color: #6B4E3D;
+  border-radius: 50%;
+  margin-bottom: 16rpx;
+}
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 80rpx;
+  background: #FFFFFF;
+  border-radius: 16rpx;
+}
+
+.empty-icon {
+  font-size: 64rpx;
+  margin-bottom: 16rpx;
+}
+
+.empty-title {
+  font-size: 26rpx;
+  color: #8B8178;
+}
+
+.bottom-safe {
+  height: 40rpx;
+}

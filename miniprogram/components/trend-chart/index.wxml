@@ -1,0 +1,13 @@
+<!--components/trend-chart/index.wxml-->
+<view class="chart-wrapper">
+  <canvas
+    type="2d"
+    id="trendCanvas"
+    class="trend-canvas"
+    style="width: {{chartWidth}}rpx; height: {{chartHeight}}rpx;"
+  ></canvas>
+  <view wx:if="{{data.length === 0}}" class="chart-empty">
+    <view class="empty-icon">☕</view>
+    <view class="empty-text">暂无数据</view>
+  </view>
+</view>

@@ -1,0 +1,14 @@
+<!--components/record-card/index.wxml-->
+<view class="record-card" bindtap="onTap" bindlongpress="onLongPress">
+  <view class="card-left">
+    <view class="time-label">{{timeLabel}}</view>
+    <view class="type-tag {{isHomemade ? 'tag-homemade' : 'tag-brand'}}">{{typeLabel}}</view>
+  </view>
+  <view class="card-center">
+    <view class="caffeine-value">{{record.caffeine_mg}}<text class="caffeine-unit"> mg</text></view>
+    <view class="desc-label">{{descLabel}}</view>
+  </view>
+  <view class="card-right">
+    <view class="arrow">›</view>
+  </view>
+</view>

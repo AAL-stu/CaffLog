@@ -1,0 +1,161 @@
+/* pages/settings/index.wxss */
+
+.settings-section {
+  margin-bottom: 24rpx;
+  background: #FFFFFF;
+  border-radius: 16rpx;
+  overflow: hidden;
+}
+
+.section-label {
+  font-size: 24rpx;
+  color: #8B8178;
+  padding: 20rpx 24rpx 8rpx;
+}
+
+.setting-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 24rpx;
+  border-bottom: 1rpx solid #F5F0EB;
+}
+
+.setting-item:last-child {
+  border-bottom: none;
+}
+
+.setting-info {
+  flex: 1;
+}
+
+.setting-title {
+  font-size: 28rpx;
+  color: #2C2416;
+  display: block;
+}
+
+.setting-desc {
+  font-size: 22rpx;
+  color: #8B8178;
+  margin-top: 4rpx;
+  display: block;
+}
+
+.threshold-dot {
+  display: inline-block;
+  width: 12rpx;
+  height: 12rpx;
+  border-radius: 6rpx;
+  margin-right: 8rpx;
+  vertical-align: middle;
+}
+
+.dot-warning {
+  background: #F0AD4E;
+}
+
+.dot-danger {
+  background: #E74C3C;
+}
+
+.threshold-input-wrap {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.threshold-input {
+  width: 100rpx;
+  text-align: right;
+  font-size: 28rpx;
+  color: #2C2416;
+  padding: 8rpx 12rpx;
+  background: #F5F0EB;
+  border-radius: 8rpx;
+}
+
+.threshold-unit {
+  font-size: 24rpx;
+  color: #8B8178;
+  margin-left: 8rpx;
+}
+
+/* 参考卡 */
+.reference-card {
+  padding: 24rpx;
+}
+
+.ref-title {
+  font-size: 26rpx;
+  font-weight: 600;
+  color: #2C2416;
+  margin-bottom: 16rpx;
+}
+
+.ref-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10rpx 0;
+}
+
+.ref-label {
+  font-size: 26rpx;
+  color: #8B8178;
+}
+
+.ref-value {
+  font-size: 26rpx;
+  color: #2C2416;
+  font-weight: 500;
+}
+
+.ref-source {
+  font-size: 20rpx;
+  color: #BBB;
+  margin-top: 12rpx;
+  text-align: right;
+}
+
+.setting-item-vertical {
+  padding: 24rpx;
+  border-bottom: 1rpx solid #F5F0EB;
+}
+
+.setting-item-vertical:last-child {
+  border-bottom: none;
+}
+
+.clear-btn {
+  display: inline-block;
+  margin-top: 16rpx;
+  padding: 12rpx 28rpx;
+  font-size: 24rpx;
+  color: #E74C3C;
+  background: #FFFFFF;
+  border: 1rpx solid #FFD5D5;
+  border-radius: 8rpx;
+  line-height: 1.2;
+}
+
+.export-btn {
+  display: inline-block;
+  margin-top: 16rpx;
+  padding: 12rpx 28rpx;
+  font-size: 24rpx;
+  color: #6B4E3D;
+  background: #FFFFFF;
+  border: 1rpx solid #D4C4B8;
+  border-radius: 8rpx;
+  line-height: 1.2;
+}
+
+/* 免责声明 */
+.disclaimer {
+  padding: 32rpx 24rpx;
+  font-size: 20rpx;
+  color: #BBB;
+  text-align: center;
+  line-height: 1.6;
+}

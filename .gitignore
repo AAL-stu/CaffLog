@@ -1,0 +1,26 @@
+# 微信开发者工具
+miniprogram_npm/
+node_modules/
+
+# 云函数 node_modules
+cloudfunctions/*/node_modules/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# 系统
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# 隐私配置（包含本地调试信息）
+project.private.config.json
+
+# Claude AI 助手配置
+CLAUDE.md
+
+# 课程报告（非项目代码）
+CaffLog实践报告.docx

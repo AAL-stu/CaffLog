@@ -1,0 +1,68 @@
+<!--pages/history/index.wxml-->
+<view class="page-container">
+
+  <!-- 趋势图表区 -->
+  <view class="chart-section">
+
+    <!-- 本周柱状图（周一~周日） -->
+    <view class="chart-card">
+      <view class="chart-title">本周摄入趋势（周一 ~ 周日）</view>
+      <trend-chart
+        data="{{weekData}}"
+        days="{{7}}"
+        chartType="bar"
+        renderVersion="{{chartVersion}}"
+        key="week-chart"
+      />
+    </view>
+
+  </view>
+
+  <!-- 历史记录列表 -->
+  <view class="section">
+    <view class="section-header">
+      <text class="section-title">全部记录</text>
+      <text class="section-count">共 {{totalCount}} 条</text>
+    </view>
+
+    <view wx:if="{{loading}}" class="loading-state">
+      <view class="loading-spinner"></view>
+      <text>加载中...</text>
+    </view>
+
+    <view wx:elif="{{groupedRecords.length === 0}}" class="empty-state">
+      <text class="empty-icon">📋</text>
+      <text class="empty-title">暂无历史记录</text>
+    </view>
+
+    <view wx:else>
+      <view wx:for="{{groupedRecords}}" wx:key="date" class="day-group">
+        <view class="day-header">
+          <view class="day-date">
+            <text class="day-date-text">{{item.date}}</text>
+            <text class="day-total">合计 {{item.total}}mg</text>
+          </view>
+          <view class="day-delete" data-date="{{item.date}}" bindtap="onDeleteDay">删除当日</view>
+        </view>
+        <view class="day-records">
+          <view wx:for="{{item.items}}" wx:key="_id" wx:for-item="rec" class="record-item" data-id="{{rec._id}}" bindtap="onRecordTap">
+            <view class="record-time">{{rec._time}}</view>
+            <view class="record-type {{rec.record_type === 'homemade' ? 'type-homemade' : 'type-brand'}}">
+              {{rec.record_type === 'homemade' ? '自制' : '品牌'}}
+            </view>
+            <view class="record-info">
+              <text>{{rec.bean_name || rec.brand_name || ''}}</text>
+              <text wx:if="{{rec.drink_name}}"> · {{rec.drink_name}}</text>
+            </view>
+            <view class="record-caf">
+              <text class="caf-val">{{rec.caffeine_mg}}</text>
+              <text class="caf-unit">mg</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="bottom-safe"></view>
+</view>

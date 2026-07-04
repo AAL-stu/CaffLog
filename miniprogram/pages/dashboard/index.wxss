@@ -1,0 +1,184 @@
+/* pages/dashboard/index.wxss */
+
+.date-header {
+  text-align: center;
+  padding: 16rpx 0 24rpx;
+}
+
+.date-text {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #2C2416;
+}
+
+/* 进度条区域 */
+.progress-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40rpx 24rpx;
+  margin-bottom: 24rpx;
+}
+
+/* 分区 */
+.section {
+  margin-bottom: 24rpx;
+}
+
+.section-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16rpx;
+  padding: 0 4rpx;
+}
+
+.section-title {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #2C2416;
+}
+
+.section-count {
+  font-size: 24rpx;
+  color: #8B8178;
+}
+
+/* 加载状态 */
+.loading-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 60rpx 0;
+}
+
+.loading-spinner {
+  width: 48rpx;
+  height: 48rpx;
+  border: 4rpx solid #E8E0D5;
+  border-top-color: #6B4E3D;
+  border-radius: 50%;
+}
+
+.loading-text {
+  font-size: 24rpx;
+  color: #8B8178;
+  margin-top: 16rpx;
+}
+
+/* 空状态 */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 60rpx 0;
+  background: #FFFFFF;
+  border-radius: 16rpx;
+}
+
+.empty-icon {
+  font-size: 64rpx;
+  margin-bottom: 16rpx;
+}
+
+.empty-title {
+  font-size: 28rpx;
+  color: #8B8178;
+  margin-bottom: 8rpx;
+}
+
+.empty-desc {
+  font-size: 24rpx;
+  color: #BBB;
+}
+
+/* 记录列表 */
+.record-list {
+  background: #FFFFFF;
+  border-radius: 16rpx;
+  overflow: hidden;
+}
+
+.record-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 20rpx 24rpx;
+  border-bottom: 1rpx solid #F5F0EB;
+}
+
+.record-item:last-child {
+  border-bottom: none;
+}
+
+.record-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 100rpx;
+}
+
+.record-time {
+  font-size: 22rpx;
+  color: #8B8178;
+  margin-bottom: 4rpx;
+}
+
+.record-type {
+  font-size: 18rpx;
+  padding: 2rpx 10rpx;
+  border-radius: 6rpx;
+  color: #FFFFFF;
+}
+
+.type-homemade {
+  background: #6B4E3D;
+}
+
+.type-brand {
+  background: #A0806B;
+}
+
+.record-center {
+  flex: 1;
+  text-align: right;
+}
+
+.record-caffeine {
+  font-size: 36rpx;
+  font-weight: 700;
+  color: #2C2416;
+}
+
+.record-unit {
+  font-size: 22rpx;
+  color: #8B8178;
+  margin-left: 4rpx;
+}
+
+.record-right {
+  margin-left: 16rpx;
+  flex: 1;
+}
+
+.record-desc {
+  font-size: 24rpx;
+  color: #8B8178;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: block;
+  max-width: 240rpx;
+}
+
+.record-action-hint {
+  font-size: 20rpx;
+  color: #CCC;
+  margin-top: 4rpx;
+}
+
+/* 底部 */
+.bottom-safe {
+  height: 40rpx;
+}

@@ -1,0 +1,52 @@
+<!--pages/dashboard/index.wxml-->
+<view class="page-container">
+
+  <!-- 日期标题 -->
+  <view class="date-header">
+    <view class="date-text">{{todayDate}}</view>
+  </view>
+
+  <!-- 环形进度条 -->
+  <view class="progress-section card">
+    <ring-progress current="{{todayTotal}}" max="{{maxLimit}}" size="{{280}}" />
+  </view>
+
+  <!-- 今日记录列表 -->
+  <view class="section">
+    <view class="section-header">
+      <text class="section-title">今日记录</text>
+      <text class="section-count" wx:if="{{records.length > 0}}">{{records.length}} 杯</text>
+    </view>
+
+    <view wx:if="{{loading}}" class="loading-state">
+      <view class="loading-spinner"></view>
+      <text class="loading-text">加载中...</text>
+    </view>
+
+    <view wx:elif="{{isEmpty}}" class="empty-state">
+      <text class="empty-icon">☕</text>
+      <text class="empty-title">今天还没有记录</text>
+      <text class="empty-desc">去记录页添加今天的咖啡因摄入吧</text>
+    </view>
+
+    <view wx:else class="record-list">
+      <view wx:for="{{records}}" wx:key="_id" class="record-item" data-id="{{item._id}}" bindtap="onRecordTap">
+        <view class="record-left">
+          <view class="record-time">{{item._time}}</view>
+          <view class="record-type {{item.record_type === 'homemade' ? 'type-homemade' : 'type-brand'}}">
+            {{item.record_type === 'homemade' ? '自制' : '品牌'}}
+          </view>
+        </view>
+        <view class="record-center">
+          <text class="record-caffeine">{{item.caffeine_mg}}</text>
+          <text class="record-unit">mg</text>
+        </view>
+        <view class="record-right">
+          <text class="record-desc">{{item._desc}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="bottom-safe"></view>
+</view>

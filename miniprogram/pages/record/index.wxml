@@ -1,0 +1,155 @@
+<!--pages/record/index.wxml-->
+<view class="page-container">
+
+  <!-- Tab 切换 -->
+  <view class="tab-bar">
+    <view
+      class="tab-item {{activeTab === 'homemade' ? 'tab-active' : ''}}"
+      data-tab="homemade"
+      bindtap="onTabChange"
+    >
+      <text class="tab-icon">🫘</text>
+      <text class="tab-text">自制咖啡</text>
+    </view>
+    <view
+      class="tab-item {{activeTab === 'brand' ? 'tab-active' : ''}}"
+      data-tab="brand"
+      bindtap="onTabChange"
+    >
+      <text class="tab-icon">☕</text>
+      <text class="tab-text">品牌饮品</text>
+    </view>
+  </view>
+
+  <!-- ==================== 自制咖啡 ==================== -->
+  <view wx:if="{{activeTab === 'homemade'}}" class="form-section">
+
+    <!-- 咖啡豆品种 -->
+    <view class="form-group">
+      <view class="form-label">咖啡豆品种</view>
+      <picker mode="selector" range="{{beans}}" range-key="name" value="{{beanIndex}}" bindchange="onBeanChange">
+        <view class="picker-input">
+          <text>{{beans[beanIndex].name}}</text>
+          <text class="picker-arrow">▾</text>
+        </view>
+      </picker>
+      <view class="form-hint">{{beans[beanIndex].description}}</view>
+    </view>
+
+    <!-- 咖啡豆重量 -->
+    <view class="form-group">
+      <view class="form-label">咖啡豆重量</view>
+      <view class="weight-input-wrap {{weightFocused ? 'input-focused' : ''}}">
+        <input
+          class="weight-input"
+          type="digit"
+          placeholder="输入克数"
+          value="{{weight}}"
+          bindinput="onWeightInput"
+          bindfocus="onWeightFocus"
+          bindblur="onWeightBlur"
+        />
+        <text class="weight-unit">克</text>
+      </view>
+      <view class="form-hint">范围 1 - 200 克</view>
+    </view>
+
+    <!-- 冲煮方式 -->
+    <view class="form-group">
+      <view class="form-label">冲煮方式</view>
+      <picker mode="selector" range="{{methods}}" range-key="name" value="{{methodIndex}}" bindchange="onMethodChange">
+        <view class="picker-input">
+          <text>{{methods[methodIndex].name}}</text>
+          <text class="picker-arrow">▾</text>
+        </view>
+      </picker>
+      <view class="form-hint">{{methods[methodIndex].description}}（萃取率 {{methods[methodIndex].rate * 100}}%）</view>
+    </view>
+  </view>
+
+  <!-- ==================== 品牌饮品 ==================== -->
+  <view wx:if="{{activeTab === 'brand'}}" class="form-section">
+
+    <!-- 品牌选择（横向滚动） -->
+    <view class="form-group">
+      <view class="form-label">品牌</view>
+      <scroll-view class="brand-scroll" scroll-x="true" enhanced show-scrollbar="{{false}}">
+        <view class="brand-tabs">
+          <view
+            wx:for="{{brands}}"
+            wx:key="id"
+            class="brand-tab {{brandId === item.id ? 'brand-active' : ''}}"
+            data-id="{{item.id}}"
+            bindtap="onBrandChange"
+          >
+            <text class="brand-name">{{item.name}}</text>
+            <text class="brand-en">{{item.enName}}</text>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+
+    <!-- 饮品种类 -->
+    <view class="form-group">
+      <view class="form-label">饮品种类</view>
+      <picker mode="selector" range="{{categories}}" value="{{categoryIndex}}" bindchange="onCategoryChange">
+        <view class="picker-input">
+          <text>{{categories[categoryIndex] || '请选择'}}</text>
+          <text class="picker-arrow">▾</text>
+        </view>
+      </picker>
+    </view>
+
+    <!-- 饮品名称 -->
+    <view class="form-group">
+      <view class="form-label">饮品</view>
+      <picker mode="selector" range="{{drinks}}" value="{{drinkIndex}}" bindchange="onDrinkChange">
+        <view class="picker-input">
+          <text>{{drinks[drinkIndex] || '请选择'}}</text>
+          <text class="picker-arrow">▾</text>
+        </view>
+      </picker>
+    </view>
+
+    <!-- 杯型选择 -->
+    <view class="form-group">
+      <view class="form-label">杯型</view>
+      <picker mode="selector" range="{{sizes}}" value="{{sizeIndex}}" bindchange="onSizeChange">
+        <view class="picker-input">
+          <text>{{sizes[sizeIndex] || '请选择'}}</text>
+          <text class="picker-arrow">▾</text>
+        </view>
+      </picker>
+    </view>
+  </view>
+
+  <!-- ==================== 结果展示 ==================== -->
+  <view wx:if="{{resultCaffeine > 0}}" class="result-card">
+    <view class="result-main">
+      <text class="result-prefix">约</text>
+      <text class="result-value">{{resultCaffeine}}</text>
+      <text class="result-unit">mg</text>
+    </view>
+
+    <view wx:if="{{activeTab === 'homemade'}}" class="result-range">
+      波动范围 {{resultMin}} - {{resultMax}} mg（±20%）
+    </view>
+  </view>
+
+  <!-- ==================== 确认按钮 ==================== -->
+  <view class="submit-area">
+    <button
+      class="submit-btn {{canSave ? '' : 'btn-disabled'}}"
+      bindtap="onSubmit"
+      disabled="{{!canSave || saving}}"
+      loading="{{saving}}"
+    >
+      {{saving ? '保存中...' : '确认记录'}}
+    </button>
+  </view>
+
+  <!-- 免责声明 -->
+  <view class="disclaimer">
+    咖啡因数值为估算值，仅供参考，不构成医疗建议
+  </view>
+</view>

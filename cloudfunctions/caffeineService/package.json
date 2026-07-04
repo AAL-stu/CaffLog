@@ -1,0 +1,9 @@
+{
+  "name": "caffeineService",
+  "version": "1.0.0",
+  "description": "CaffLog 核心业务云函数",
+  "main": "index.js",
+  "dependencies": {
+    "wx-server-sdk": "latest"
+  }
+}

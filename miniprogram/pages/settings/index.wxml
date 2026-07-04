@@ -1,0 +1,99 @@
+<!--pages/settings/index.wxml-->
+<view class="page-container">
+
+  <!-- 提醒设置 -->
+  <view class="settings-section">
+    <view class="section-label">提醒设置</view>
+
+    <!-- 开关 -->
+    <view class="setting-item">
+      <view class="setting-info">
+        <text class="setting-title">开启预警提醒</text>
+        <text class="setting-desc">当摄入量接近安全阈值时弹出提醒</text>
+      </view>
+      <switch
+        checked="{{enabled}}"
+        color="#6B4E3D"
+        bindchange="onToggleReminder"
+      />
+    </view>
+
+    <!-- 警告阈值 -->
+    <view class="setting-item" wx:if="{{enabled}}">
+      <view class="setting-info">
+        <text class="setting-title">
+          <text class="threshold-dot dot-warning"></text>
+          警告阈值（黄色）
+        </text>
+        <text class="setting-desc">达到该值后弹出黄色提示</text>
+      </view>
+      <view class="threshold-input-wrap">
+        <input
+          class="threshold-input"
+          type="number"
+          value="{{warning}}"
+          bindblur="onWarningChange"
+        />
+        <text class="threshold-unit">mg</text>
+      </view>
+    </view>
+
+    <!-- 超标阈值 -->
+    <view class="setting-item" wx:if="{{enabled}}">
+      <view class="setting-info">
+        <text class="setting-title">
+          <text class="threshold-dot dot-danger"></text>
+          超标阈值（红色）
+        </text>
+        <text class="setting-desc">达到该值后弹出红色警告</text>
+      </view>
+      <view class="threshold-input-wrap">
+        <input
+          class="threshold-input"
+          type="number"
+          value="{{danger}}"
+          bindblur="onDangerChange"
+        />
+        <text class="threshold-unit">mg</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 参考信息 -->
+  <view class="reference-card card">
+    <view class="ref-title">咖啡因安全摄入参考</view>
+    <view class="ref-item">
+      <text class="ref-label">健康成人</text>
+      <text class="ref-value">每日 ≤ 400mg</text>
+    </view>
+    <view class="ref-item">
+      <text class="ref-label">孕期女性</text>
+      <text class="ref-value">每日 ≤ 200mg</text>
+    </view>
+    <view class="ref-source">数据来源：FDA、EFSA 官方建议</view>
+  </view>
+
+  <!-- 数据管理 -->
+  <view class="settings-section">
+    <view class="section-label">数据管理</view>
+    <view class="setting-item-vertical">
+      <view class="setting-info">
+        <text class="setting-title">导出历史记录</text>
+        <text class="setting-desc">将全部记录导出为文本，可复制或分享</text>
+      </view>
+      <button class="export-btn" bindtap="onExport">导出记录</button>
+    </view>
+    <view class="setting-item-vertical">
+      <view class="setting-info">
+        <text class="setting-title">清除全部记录</text>
+        <text class="setting-desc">删除所有摄入记录，不可恢复</text>
+      </view>
+      <button class="clear-btn" bindtap="onClearAll">清除</button>
+    </view>
+  </view>
+
+  <!-- 免责声明 -->
+  <view class="disclaimer">
+    <text>本应用中的咖啡因数值为估算值，仅供参考，不构成医疗建议。如有健康疑虑，请咨询专业医师。</text>
+  </view>
+</view>

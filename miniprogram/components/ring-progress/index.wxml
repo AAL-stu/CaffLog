@@ -1,0 +1,17 @@
+<!--components/ring-progress/index.wxml-->
+<view class="ring-container" style="width: {{canvasWidth}}rpx; height: {{canvasHeight}}rpx;">
+  <canvas
+    type="2d"
+    id="ringCanvas"
+    class="ring-canvas"
+    style="width: {{canvasWidth}}rpx; height: {{canvasHeight}}rpx;"
+  ></canvas>
+  <view class="ring-center">
+    <view class="current-value">{{current}}</view>
+    <view class="current-unit">mg</view>
+    <view class="max-label">/ {{max}} mg</view>
+    <view class="remaining">
+      <text class="{{remaining > 50 ? 'text-safe' : 'text-danger'}}">剩余 {{remaining}} mg</text>
+    </view>
+  </view>
+</view>
