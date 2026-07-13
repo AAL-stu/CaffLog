@@ -1,21 +1,27 @@
 // app.js - CaffLog 咖啡因摄入记录
+const { silentLogin } = require('./utils/authService');
+
 App({
   onLaunch() {
-    if (!wx.cloud) {
-      console.error('请使用 2.2.3 或以上的基础库');
-      return;
-    }
-    wx.cloud.init({
-      env: 'your-cloud-env-id',
-      traceUser: true
-    });
     this.loadSettings();
     this.checkLogin();
+    // 静默登录获取 JWT
+    silentLogin()
+      .then(data => {
+        this.globalData.openid = data.openid;
+        this.globalData.userId = data.userId;
+        console.log('JWT 登录成功, userId:', data.userId);
+      })
+      .catch(err => {
+        console.warn('静默登录失败:', err);
+      });
   },
 
   globalData: {
     userInfo: null,
-    isLogin: false
+    isLogin: false,
+    openid: '',
+    userId: null
   },
 
   checkLogin() {
@@ -24,15 +30,6 @@ App({
     if (userInfo) {
       this.globalData.userInfo = userInfo;
       this.globalData.isLogin = true;
-    }
-    // 静默登录获取 openid
-    if (wx.cloud) {
-      wx.cloud.callFunction({ name: 'caffeineService', data: { action: 'getOpenId' } })
-        .then(res => {
-          if (res.result && res.result.openid) {
-            this.globalData.openid = res.result.openid;
-          }
-        }).catch(() => {});
     }
   },
 

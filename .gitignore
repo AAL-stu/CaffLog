@@ -27,3 +27,9 @@ CaffLog实践报告.docx
 
 # AI 交接文档（内部使用）
 handoff-github-deployment.md
+
+# Maven 编译输出
+backend/target/
+
+# Reasonix 内部状态
+.reasonix/
